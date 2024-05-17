@@ -61,6 +61,8 @@ TGrupoABB desencolarGrupoTVisitaDia(TVisitaDia &visitaDia){
     if (visitaDia->coleccion->ultimo->anterior != NULL){
         visitaDia->coleccion->ultimo = aux->anterior;
         visitaDia->coleccion->ultimo->siguiente = NULL;
+    } else {
+        visitaDia->coleccion->ultimo = visitaDia->coleccion->primero = NULL;
     }
     // if (visitaDia->coleccion->ultimo != NULL){
     // }
