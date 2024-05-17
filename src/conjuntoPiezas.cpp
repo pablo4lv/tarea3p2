@@ -18,8 +18,7 @@ TConjuntoPiezas crearTConjuntoPiezas(int cantMax){
 }
 
 bool esVacioTConjuntoPiezas(TConjuntoPiezas c){
-    
-    return false;
+    return c->cantidad == 0;
 }
 
 void insertarTConjuntoPiezas(TConjuntoPiezas &c, int id){
@@ -35,9 +34,13 @@ void borrarDeTConjuntoPiezas(TConjuntoPiezas &c, int id){}
 
 bool perteneceTConjuntoPiezas(TConjuntoPiezas c, int id){ return false; }
 
-int cardinalTConjuntoPiezas(TConjuntoPiezas c){ return 0; }
+int cardinalTConjuntoPiezas(TConjuntoPiezas c){
+    return c->cantidad;
+}
 
-int cantMaxTConjuntoPiezas(TConjuntoPiezas c){ return 0; }
+int cantMaxTConjuntoPiezas(TConjuntoPiezas c){
+    return c->cantidad;
+}
 
 void imprimirTConjuntoPiezas(TConjuntoPiezas c){
     for (int i = 0; i < c->max; i++){
