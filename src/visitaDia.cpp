@@ -19,8 +19,7 @@ TVisitaDia crearTVisitaDia(TFecha fecha){
     TVisitaDia nuevo = new rep_visitadia;
     nuevo->fecha = fecha;
     nuevo->coleccion = new coleccionGrupos;
-    nuevo->coleccion->primero = NULL;
-    nuevo->coleccion->ultimo = NULL;    
+    nuevo->coleccion->primero = nuevo->coleccion->ultimo = NULL;    
     return nuevo;
 }
 
@@ -28,8 +27,7 @@ void encolarGrupoTVisitaDia(TVisitaDia &visitaDia, TGrupoABB grupo){
     nodo* nuevo = new nodo;
     nuevo->grupo = grupo;
     if (visitaDia->coleccion->primero == NULL){
-        visitaDia->coleccion->primero = nuevo;
-        visitaDia->coleccion->ultimo = nuevo;
+        visitaDia->coleccion->primero = visitaDia->coleccion->ultimo = nuevo;
         nuevo->anterior = nuevo->siguiente = NULL;
     } else {
         nuevo->siguiente = visitaDia->coleccion->primero;
