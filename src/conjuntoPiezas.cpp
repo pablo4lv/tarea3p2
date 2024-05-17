@@ -38,7 +38,7 @@ void borrarDeTConjuntoPiezas(TConjuntoPiezas &c, int id){
 }
 
 bool perteneceTConjuntoPiezas(TConjuntoPiezas c, int id){
-    return c->ids[id] == 1;
+    return (c->ids[id] == 1);
 }
 
 int cardinalTConjuntoPiezas(TConjuntoPiezas c){
