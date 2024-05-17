@@ -30,9 +30,16 @@ void insertarTConjuntoPiezas(TConjuntoPiezas &c, int id){
     }
 }
 
-void borrarDeTConjuntoPiezas(TConjuntoPiezas &c, int id){}
+void borrarDeTConjuntoPiezas(TConjuntoPiezas &c, int id){
+    if (c->ids[id] != 0){
+        c->ids[id] = 0;
+        c->cantidad--;
+    }
+}
 
-bool perteneceTConjuntoPiezas(TConjuntoPiezas c, int id){ return false; }
+bool perteneceTConjuntoPiezas(TConjuntoPiezas c, int id){
+    return c->ids[id] == 1;
+}
 
 int cardinalTConjuntoPiezas(TConjuntoPiezas c){
     return c->cantidad;
@@ -57,7 +64,11 @@ void liberarTConjuntoPiezas(TConjuntoPiezas &c){
     c = NULL;
 }
 
-TConjuntoPiezas unionTConjuntoPiezas(TConjuntoPiezas c1, TConjuntoPiezas c2){ return NULL; }
+TConjuntoPiezas unionTConjuntoPiezas(TConjuntoPiezas c1, TConjuntoPiezas c2){
+    // TConjuntoPiezas aux = new rep_conjuntopiezas;
+    
+    return NULL;
+}
 
 TConjuntoPiezas interseccionTConjuntoPiezas(TConjuntoPiezas c1, TConjuntoPiezas c2){ return NULL; }
 
