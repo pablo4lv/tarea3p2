@@ -59,7 +59,9 @@ TGrupoABB desencolarGrupoTVisitaDia(TVisitaDia &visitaDia){
     nodo* aux = visitaDia->coleccion->ultimo;
     TGrupoABB ultimo = aux->grupo;
     visitaDia->coleccion->ultimo = aux->anterior;
-    visitaDia->coleccion->ultimo->siguiente = NULL;
+    if (visitaDia->coleccion->ultimo != NULL){
+        visitaDia->coleccion->ultimo->siguiente = NULL;
+    }
     visitaDia->coleccion->contador--;
     // liberarTGrupoABB(aux->grupo);
     // delete aux;
