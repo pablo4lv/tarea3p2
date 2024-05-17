@@ -7,6 +7,7 @@ struct nodo{
 };
 
 struct coleccionGrupos {
+    int contador;
 	nodo* primero;
 	nodo* ultimo;
 };
@@ -19,7 +20,8 @@ TVisitaDia crearTVisitaDia(TFecha fecha){
     TVisitaDia nuevo = new rep_visitadia;
     nuevo->fecha = fecha;
     nuevo->coleccion = new coleccionGrupos;
-    nuevo->coleccion->primero = nuevo->coleccion->ultimo = NULL;    
+    nuevo->coleccion->primero = nuevo->coleccion->ultimo = NULL;
+    nuevo->coleccion->contador = 0; 
     return nuevo;
 }
 
@@ -35,9 +37,12 @@ void encolarGrupoTVisitaDia(TVisitaDia &visitaDia, TGrupoABB grupo){
         visitaDia->coleccion->primero->anterior = nuevo;
         visitaDia->coleccion->primero = nuevo;
     }
+    visitaDia->coleccion->contador++;
 }
 
-int cantidadGruposTVisitaDia(TVisitaDia visitaDia){ return 0; }
+int cantidadGruposTVisitaDia(TVisitaDia visitaDia){
+    return visitaDia->coleccion->contador; 
+}
 
 void imprimirVisitaDia(TVisitaDia visitaDia){
     printf("Visita para dia: ");
@@ -50,7 +55,16 @@ void imprimirVisitaDia(TVisitaDia visitaDia){
     }
 }
 
-TGrupoABB desencolarGrupoTVisitaDia(TVisitaDia &visitaDia){ return NULL; }
+TGrupoABB desencolarGrupoTVisitaDia(TVisitaDia &visitaDia){
+    nodo* aux = visitaDia->coleccion->ultimo;
+    TGrupoABB ultimo = aux->grupo;
+    visitaDia->coleccion->ultimo = aux->anterior;
+    visitaDia->coleccion->ultimo->siguiente = NULL;
+    liberarTGrupoABB(aux->grupo);
+    delete aux;
+    visitaDia->coleccion->contador--;
+    return ultimo;
+}
 
 void liberarTVisitaDia(TVisitaDia &visitaDia){
     nodo* aux = visitaDia->coleccion->primero;
