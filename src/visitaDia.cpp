@@ -58,10 +58,12 @@ void imprimirVisitaDia(TVisitaDia visitaDia){
 TGrupoABB desencolarGrupoTVisitaDia(TVisitaDia &visitaDia){
     nodo* aux = visitaDia->coleccion->ultimo;
     TGrupoABB ultimo = aux->grupo;
-    visitaDia->coleccion->ultimo = aux->anterior;
-    if (visitaDia->coleccion->ultimo != NULL){
+    if (visitaDia->coleccion->ultimo->anterior != NULL){
+        visitaDia->coleccion->ultimo = aux->anterior;
         visitaDia->coleccion->ultimo->siguiente = NULL;
     }
+    // if (visitaDia->coleccion->ultimo != NULL){
+    // }
     visitaDia->coleccion->contador--;
     // liberarTGrupoABB(aux->grupo);
     // delete aux;
