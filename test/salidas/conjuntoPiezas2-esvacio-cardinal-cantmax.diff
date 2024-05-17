@@ -1,0 +1,16 @@
+3c3
+< 2> El conjunto de piezas es vacio.
+---
+> 2> La conjunto de piezas NO es vacio.
+5c5
+< 4> La cantidad maxima del conjunto es: 2.
+---
+> 4> La cantidad maxima del conjunto es: 0.
+11c11
+< 10> El conjunto de piezas es vacio.
+---
+> 10> La conjunto de piezas NO es vacio.
+13c13
+< 12> La cantidad maxima del conjunto es: 2.
+---
+> 12> La cantidad maxima del conjunto es: 0.

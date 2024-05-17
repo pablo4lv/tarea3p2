@@ -1,0 +1,28 @@
+24a25,51
+> ==5309== 12 bytes in 1 blocks are definitely lost in loss record 1 of 5
+> ==5309==    at 0x4842F95: operator new(unsigned long) (vg_replace_malloc.c:483)
+> ==5309==    by 0x404BF1: crearTFecha(unsigned int, unsigned int, unsigned int) (fecha.cpp:10)
+> ==5309==    by 0x40237C: leerFecha(rep_fecha*&) (principal.cpp:489)
+> ==5309==    by 0x4046E9: main_crearGaleria(rep_galeria*&) (principal.cpp:1353)
+> ==5309==    by 0x402161: main (principal.cpp:452)
+> ==5309== 
+> ==5309== 24 bytes in 2 blocks are definitely lost in loss record 2 of 5
+> ==5309==    at 0x4842F95: operator new(unsigned long) (vg_replace_malloc.c:483)
+> ==5309==    by 0x404BF1: crearTFecha(unsigned int, unsigned int, unsigned int) (fecha.cpp:10)
+> ==5309==    by 0x40237C: leerFecha(rep_fecha*&) (principal.cpp:489)
+> ==5309==    by 0x403EB7: main_crearExposicion(rep_exposicion*&) (principal.cpp:1122)
+> ==5309==    by 0x401E1F: main (principal.cpp:402)
+> ==5309== 
+> ==5309== 24 bytes in 2 blocks are definitely lost in loss record 3 of 5
+> ==5309==    at 0x4842F95: operator new(unsigned long) (vg_replace_malloc.c:483)
+> ==5309==    by 0x404BF1: crearTFecha(unsigned int, unsigned int, unsigned int) (fecha.cpp:10)
+> ==5309==    by 0x40237C: leerFecha(rep_fecha*&) (principal.cpp:489)
+> ==5309==    by 0x403EC3: main_crearExposicion(rep_exposicion*&) (principal.cpp:1125)
+> ==5309==    by 0x401E1F: main (principal.cpp:402)
+> ==5309== 
+> ==5309== 1,296 (1,248 direct, 48 indirect) bytes in 4 blocks are definitely lost in loss record 5 of 5
+> ==5309==    at 0x4842F95: operator new(unsigned long) (vg_replace_malloc.c:483)
+> ==5309==    by 0x405034: crearTPieza(int, char const*, char const*, char const*, rep_fecha*) (pieza.cpp:14)
+> ==5309==    by 0x40288B: main_crearTPieza(rep_pieza*&, rep_fecha*&) (principal.cpp:600)
+> ==5309==    by 0x401519: main (principal.cpp:262)
+> ==5309== 

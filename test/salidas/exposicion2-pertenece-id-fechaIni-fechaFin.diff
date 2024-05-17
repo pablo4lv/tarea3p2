@@ -1,0 +1,51 @@
+1,18c1,31
+< Bienvenido al programa principal de ArteProg. Por favor ingrese su comando:
+< 1> Exposicion creada con exito.
+< 2> Piezas agregadas a la exposicion de forma exitosa.
+< 3> Exposicion #1 del 1/1/2002 al 1/6/2002
+< Piezas: 0 1 2 3 4 
+< 4> Piezas agregadas a la exposicion de forma exitosa.
+< 5> Exposicion #1 del 1/1/2002 al 1/6/2002
+< Piezas: 0 1 2 3 4 5 6 7 8 9 
+< 6> La pieza de id 0 pertenece a la exposicion.
+< 7> La pieza de id 1 pertenece a la exposicion.
+< 8> La pieza de id 6 pertenece a la exposicion.
+< 9> La pieza de id 9 pertenece a la exposicion.
+< 10> La pieza de id 10 NO pertenece a la exposicion.
+< 11> El id de la exposicion es: 1.
+< 12> La fecha inicio de la exposicion es: 1/1/2002
+< 13> La fecha fin de la exposicion es: 1/6/2002
+< 14> Exposicion liberada con exito.
+< 15> Fin.
+---
+> ==5195== Invalid read of size 4
+> ==5195==    at 0x404F13: imprimirTFecha(rep_fecha*) (fecha.cpp:95)
+> ==5195==    by 0x4040AF: main_fechaInicioTExposicion(rep_exposicion*) (principal.cpp:1171)
+> ==5195==    by 0x401EEC: main (principal.cpp:412)
+> ==5195==  Address 0x8 is not stack'd, malloc'd or (recently) free'd
+> ==5195== 
+> ==5195== 
+> ==5195== Process terminating with default action of signal 11 (SIGSEGV)
+> ==5195==  Access not within mapped region at address 0x8
+> ==5195==    at 0x404F13: imprimirTFecha(rep_fecha*) (fecha.cpp:95)
+> ==5195==    by 0x4040AF: main_fechaInicioTExposicion(rep_exposicion*) (principal.cpp:1171)
+> ==5195==    by 0x401EEC: main (principal.cpp:412)
+> ==5195==  If you believe this happened as a result of a stack
+> ==5195==  overflow in your program's main thread (unlikely but
+> ==5195==  possible), you can try to increase the size of the
+> ==5195==  main thread stack using the --main-stacksize= flag.
+> ==5195==  The main thread stack size used in this run was 8388608.
+> ==5195== 12 bytes in 1 blocks are definitely lost in loss record 1 of 5
+> ==5195==    at 0x4842F95: operator new(unsigned long) (vg_replace_malloc.c:483)
+> ==5195==    by 0x404BF1: crearTFecha(unsigned int, unsigned int, unsigned int) (fecha.cpp:10)
+> ==5195==    by 0x40237C: leerFecha(rep_fecha*&) (principal.cpp:489)
+> ==5195==    by 0x403EB7: main_crearExposicion(rep_exposicion*&) (principal.cpp:1122)
+> ==5195==    by 0x401E1F: main (principal.cpp:402)
+> ==5195== 
+> ==5195== 12 bytes in 1 blocks are definitely lost in loss record 2 of 5
+> ==5195==    at 0x4842F95: operator new(unsigned long) (vg_replace_malloc.c:483)
+> ==5195==    by 0x404BF1: crearTFecha(unsigned int, unsigned int, unsigned int) (fecha.cpp:10)
+> ==5195==    by 0x40237C: leerFecha(rep_fecha*&) (principal.cpp:489)
+> ==5195==    by 0x403EC3: main_crearExposicion(rep_exposicion*&) (principal.cpp:1125)
+> ==5195==    by 0x401E1F: main (principal.cpp:402)
+> ==5195== 

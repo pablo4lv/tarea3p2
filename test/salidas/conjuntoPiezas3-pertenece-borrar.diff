@@ -1,0 +1,32 @@
+3c3
+< 2> El conjunto de piezas es vacio.
+---
+> 2> La conjunto de piezas NO es vacio.
+5c5
+< 4> La cantidad maxima del conjunto es: 3.
+---
+> 4> La cantidad maxima del conjunto es: 0.
+8c8
+< 7> La pieza de id 2 pertenece al conjunto.
+---
+> 7> La pieza de id 2 NO pertenece al conjunto.
+11,13c11,13
+< 10> El cardinal del conjunto es: 3.
+< 11> La cantidad maxima del conjunto es: 3.
+< 12> La pieza de id 2 pertenece al conjunto.
+---
+> 10> El cardinal del conjunto es: 0.
+> 11> La cantidad maxima del conjunto es: 0.
+> 12> La pieza de id 2 NO pertenece al conjunto.
+20c20
+< 19> La cantidad maxima del conjunto es: 3.
+---
+> 19> La cantidad maxima del conjunto es: 0.
+25,26c25,26
+< 24> El cardinal del conjunto es: 2.
+< 25> La cantidad maxima del conjunto es: 3.
+---
+> 24> El cardinal del conjunto es: 0.
+> 25> La cantidad maxima del conjunto es: 0.
+28d27
+< 0 1 

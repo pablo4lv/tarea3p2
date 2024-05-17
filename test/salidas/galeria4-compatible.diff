@@ -1,0 +1,32 @@
+31c31
+< 30> La exposicion es compatible con las demas exposiciones de la galeria.
+---
+> 30> La exposicion NO es compatible con las demas exposiciones de la galeria.
+38a39,65
+> ==5337== 12 bytes in 1 blocks are definitely lost in loss record 1 of 5
+> ==5337==    at 0x4842F95: operator new(unsigned long) (vg_replace_malloc.c:483)
+> ==5337==    by 0x404BF1: crearTFecha(unsigned int, unsigned int, unsigned int) (fecha.cpp:10)
+> ==5337==    by 0x40237C: leerFecha(rep_fecha*&) (principal.cpp:489)
+> ==5337==    by 0x4046E9: main_crearGaleria(rep_galeria*&) (principal.cpp:1353)
+> ==5337==    by 0x402161: main (principal.cpp:452)
+> ==5337== 
+> ==5337== 60 bytes in 5 blocks are definitely lost in loss record 3 of 5
+> ==5337==    at 0x4842F95: operator new(unsigned long) (vg_replace_malloc.c:483)
+> ==5337==    by 0x404BF1: crearTFecha(unsigned int, unsigned int, unsigned int) (fecha.cpp:10)
+> ==5337==    by 0x40237C: leerFecha(rep_fecha*&) (principal.cpp:489)
+> ==5337==    by 0x403EB7: main_crearExposicion(rep_exposicion*&) (principal.cpp:1122)
+> ==5337==    by 0x401E1F: main (principal.cpp:402)
+> ==5337== 
+> ==5337== 60 bytes in 5 blocks are definitely lost in loss record 4 of 5
+> ==5337==    at 0x4842F95: operator new(unsigned long) (vg_replace_malloc.c:483)
+> ==5337==    by 0x404BF1: crearTFecha(unsigned int, unsigned int, unsigned int) (fecha.cpp:10)
+> ==5337==    by 0x40237C: leerFecha(rep_fecha*&) (principal.cpp:489)
+> ==5337==    by 0x403EC3: main_crearExposicion(rep_exposicion*&) (principal.cpp:1125)
+> ==5337==    by 0x401E1F: main (principal.cpp:402)
+> ==5337== 
+> ==5337== 1,620 (1,560 direct, 60 indirect) bytes in 5 blocks are definitely lost in loss record 5 of 5
+> ==5337==    at 0x4842F95: operator new(unsigned long) (vg_replace_malloc.c:483)
+> ==5337==    by 0x405034: crearTPieza(int, char const*, char const*, char const*, rep_fecha*) (pieza.cpp:14)
+> ==5337==    by 0x40288B: main_crearTPieza(rep_pieza*&, rep_fecha*&) (principal.cpp:600)
+> ==5337==    by 0x401519: main (principal.cpp:262)
+> ==5337== 

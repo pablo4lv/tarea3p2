@@ -1,0 +1,8 @@
+principal: principal.cpp:990: void main_liberarVisitaDia(rep_visitadia*&): Assertion `visitaDia != NULL' failed.
+==5106== 12 bytes in 1 blocks are definitely lost in loss record 1 of 4
+==5106==    at 0x4842F95: operator new(unsigned long) (vg_replace_malloc.c:483)
+==5106==    by 0x404BF1: crearTFecha(unsigned int, unsigned int, unsigned int) (fecha.cpp:10)
+==5106==    by 0x40237C: leerFecha(rep_fecha*&) (principal.cpp:489)
+==5106==    by 0x4038A5: main_crearVisitaDia(rep_visitadia*&) (principal.cpp:959)
+==5106==    by 0x401B36: main (principal.cpp:356)
+==5106== 

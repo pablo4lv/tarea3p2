@@ -1,0 +1,16 @@
+Bienvenido al programa principal de ArteProg. Por favor ingrese su comando:
+1> El conjunto piezas fue creado en forma correcta.
+2> Se ejecuto 'insertarTConjuntoPiezas' con pieza de id 0 exitosamente.
+3> Se ejecuto 'insertarTConjuntoPiezas' con pieza de id 1 exitosamente.
+4> Se ejecuto 'insertarTConjuntoPiezas' con pieza de id 2 exitosamente.
+5> Se ejecuto 'insertarTConjuntoPiezas' con pieza de id 3 exitosamente.
+6> Se ejecuto 'insertarTConjuntoPiezas' con pieza de id 6 exitosamente.
+7> Se ejecuto 'insertarTConjuntoPiezas' con pieza de id 7 exitosamente.
+8> Se ejecuto 'insertarTConjuntoPiezas' con pieza de id 8 exitosamente.
+9> Se ejecuto 'insertarTConjuntoPiezas' con pieza de id 9 exitosamente.
+10> Conjunto de piezas:
+11> Conjunto de piezas union:
+12> Conjunto de piezas interseccion:
+13> Conjunto de piezas diferencia:
+14> Conjunto de piezas liberado exitosamente.
+15> Fin.

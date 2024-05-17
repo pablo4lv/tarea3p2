@@ -1,0 +1,35 @@
+Bienvenido al programa principal de ArteProg. Por favor ingrese su comando:
+1> Exposicion creada con exito.
+2> Piezas agregadas a la exposicion de forma exitosa.
+3> 4> Las exposiciones NO son compatibles.
+5> Las exposiciones NO son compatibles.
+6> Exposicion liberada con exito.
+7> Fin.
+==5209== 12 bytes in 1 blocks are definitely lost in loss record 1 of 4
+==5209==    at 0x4842F95: operator new(unsigned long) (vg_replace_malloc.c:483)
+==5209==    by 0x404BF1: crearTFecha(unsigned int, unsigned int, unsigned int) (fecha.cpp:10)
+==5209==    by 0x40237C: leerFecha(rep_fecha*&) (principal.cpp:489)
+==5209==    by 0x403EB7: main_crearExposicion(rep_exposicion*&) (principal.cpp:1122)
+==5209==    by 0x401E1F: main (principal.cpp:402)
+==5209== 
+==5209== 12 bytes in 1 blocks are definitely lost in loss record 2 of 4
+==5209==    at 0x4842F95: operator new(unsigned long) (vg_replace_malloc.c:483)
+==5209==    by 0x404BF1: crearTFecha(unsigned int, unsigned int, unsigned int) (fecha.cpp:10)
+==5209==    by 0x40237C: leerFecha(rep_fecha*&) (principal.cpp:489)
+==5209==    by 0x403EC3: main_crearExposicion(rep_exposicion*&) (principal.cpp:1125)
+==5209==    by 0x401E1F: main (principal.cpp:402)
+==5209== 
+==5209== 24 bytes in 2 blocks are definitely lost in loss record 3 of 4
+==5209==    at 0x4842F95: operator new(unsigned long) (vg_replace_malloc.c:483)
+==5209==    by 0x404BF1: crearTFecha(unsigned int, unsigned int, unsigned int) (fecha.cpp:10)
+==5209==    by 0x40237C: leerFecha(rep_fecha*&) (principal.cpp:489)
+==5209==    by 0x404133: main_sonExposicionesCompatibles(rep_exposicion*) (principal.cpp:1188)
+==5209==    by 0x401F3E: main (principal.cpp:416)
+==5209== 
+==5209== 24 bytes in 2 blocks are definitely lost in loss record 4 of 4
+==5209==    at 0x4842F95: operator new(unsigned long) (vg_replace_malloc.c:483)
+==5209==    by 0x404BF1: crearTFecha(unsigned int, unsigned int, unsigned int) (fecha.cpp:10)
+==5209==    by 0x40237C: leerFecha(rep_fecha*&) (principal.cpp:489)
+==5209==    by 0x40413F: main_sonExposicionesCompatibles(rep_exposicion*) (principal.cpp:1191)
+==5209==    by 0x401F3E: main (principal.cpp:416)
+==5209== 

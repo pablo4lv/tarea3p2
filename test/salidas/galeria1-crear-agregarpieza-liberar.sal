@@ -1,0 +1,29 @@
+Bienvenido al programa principal de ArteProg. Por favor ingrese su comando:
+1> Galeria creada con exito.
+2> Fecha creada en forma exitosa.
+3> Pieza creada en forma exitosa.
+4> La pieza fue agregada a la galeria con exito.
+5> Fecha creada en forma exitosa.
+6> Pieza creada en forma exitosa.
+7> La pieza fue agregada a la galeria con exito.
+8> Fecha creada en forma exitosa.
+9> Pieza creada en forma exitosa.
+10> La pieza fue agregada a la galeria con exito.
+11> Fecha creada en forma exitosa.
+12> Pieza creada en forma exitosa.
+13> La pieza fue agregada a la galeria con exito.
+14> Galeria liberada con exito.
+15> Fin.
+==5298== 12 bytes in 1 blocks are definitely lost in loss record 1 of 3
+==5298==    at 0x4842F95: operator new(unsigned long) (vg_replace_malloc.c:483)
+==5298==    by 0x404BF1: crearTFecha(unsigned int, unsigned int, unsigned int) (fecha.cpp:10)
+==5298==    by 0x40237C: leerFecha(rep_fecha*&) (principal.cpp:489)
+==5298==    by 0x4046E9: main_crearGaleria(rep_galeria*&) (principal.cpp:1353)
+==5298==    by 0x402161: main (principal.cpp:452)
+==5298== 
+==5298== 1,296 (1,248 direct, 48 indirect) bytes in 4 blocks are definitely lost in loss record 3 of 3
+==5298==    at 0x4842F95: operator new(unsigned long) (vg_replace_malloc.c:483)
+==5298==    by 0x405034: crearTPieza(int, char const*, char const*, char const*, rep_fecha*) (pieza.cpp:14)
+==5298==    by 0x40288B: main_crearTPieza(rep_pieza*&, rep_fecha*&) (principal.cpp:600)
+==5298==    by 0x401519: main (principal.cpp:262)
+==5298== 
