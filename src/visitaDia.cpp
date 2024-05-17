@@ -42,6 +42,7 @@ int cantidadGruposTVisitaDia(TVisitaDia visitaDia){ return 0; }
 void imprimirVisitaDia(TVisitaDia visitaDia){
     printf("Visita para dia: ");
     imprimirTFecha(visitaDia->fecha);
+    printf("\n");
     nodo* aux = visitaDia->coleccion->primero;
     while (aux != NULL){
         imprimirTGrupoABB(aux->grupo);
