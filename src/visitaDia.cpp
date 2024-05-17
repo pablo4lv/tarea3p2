@@ -68,7 +68,7 @@ TGrupoABB desencolarGrupoTVisitaDia(TVisitaDia &visitaDia){
     // }
     visitaDia->coleccion->contador--;
     // liberarTGrupoABB(aux->grupo);
-    // delete aux;
+    delete aux;
     return ultimo;
 }
 
