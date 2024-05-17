@@ -60,6 +60,7 @@ void liberarTVisitaDia(TVisitaDia &visitaDia){
         delete aux;
         aux = visitaDia->coleccion->primero;
     }
+    delete visitaDia->coleccion;
     liberarTFecha(visitaDia->fecha);
     delete visitaDia;
     visitaDia = NULL;
