@@ -39,7 +39,7 @@ int cardinalTConjuntoPiezas(TConjuntoPiezas c){
 }
 
 int cantMaxTConjuntoPiezas(TConjuntoPiezas c){
-    return c->cantidad;
+    return c->max;
 }
 
 void imprimirTConjuntoPiezas(TConjuntoPiezas c){
