@@ -69,11 +69,31 @@ void liberarTConjuntoPiezas(TConjuntoPiezas &c){
 }
 
 TConjuntoPiezas unionTConjuntoPiezas(TConjuntoPiezas c1, TConjuntoPiezas c2){
-    // TConjuntoPiezas aux = new rep_conjuntopiezas;
-    
-    return NULL;
+    TConjuntoPiezas arreglo = crearTConjuntoPiezas(c1->max);
+    for (int i = 0; i < c1->max; i++){
+        if (c1->ids[i] == 1 || c2->ids[i] == 1){
+            insertarTConjuntoPiezas(arreglo, i);
+        }
+    }
+    return arreglo;
 }
 
-TConjuntoPiezas interseccionTConjuntoPiezas(TConjuntoPiezas c1, TConjuntoPiezas c2){ return NULL; }
+TConjuntoPiezas interseccionTConjuntoPiezas(TConjuntoPiezas c1, TConjuntoPiezas c2){
+    TConjuntoPiezas arreglo = crearTConjuntoPiezas(c1->max);
+    for (int i = 0; i < c1->max; i++){
+        if (c1->ids[i] == 1 && c2->ids[i] == 1){
+            insertarTConjuntoPiezas(arreglo, i);
+        }
+    }
+    return arreglo;
+}
 
-TConjuntoPiezas diferenciaTConjuntoPiezas(TConjuntoPiezas c1, TConjuntoPiezas c2){ return NULL; }
+TConjuntoPiezas diferenciaTConjuntoPiezas(TConjuntoPiezas c1, TConjuntoPiezas c2){
+    TConjuntoPiezas arreglo = crearTConjuntoPiezas(c1->max);
+    for (int i = 0; i < c1->max; i++){
+        if (c1->ids[i] != c2->ids[i]){
+            insertarTConjuntoPiezas(arreglo, i);
+        }
+    }
+    return arreglo;
+}
