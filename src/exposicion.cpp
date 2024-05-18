@@ -32,7 +32,6 @@ void imprimirTExposicion(TExposicion exp){
     printf("\n");
     printf("Piezas: ");
     imprimirTConjuntoPiezas(exp->conjunto);
-    printf("\n");
 }
 
 TFecha fechaInicioTExposicion(TExposicion exp){ return NULL; }
