@@ -50,7 +50,9 @@ bool sonExposicionesCompatibles(TExposicion exp1, TExposicion exp2){
     //Si se superponen
     if (compararTFechas(exp1->fin,exp2->inicio) || compararTFechas(exp2->fin,exp1->inicio)){
         //y tienen piezas en comun
-        if( !esVacioTConjuntoPiezas( interseccionTConjuntoPiezas(exp1->conjunto,exp2->conjunto) ) ){
+        TConjuntoPiezas interseccion = interseccionTConjuntoPiezas(exp1->conjunto,exp2->conjunto);
+        if(!esVacioTConjuntoPiezas(interseccion)){
+            liberarTConjuntoPiezas(interseccion);
             return false;
         }
     }
