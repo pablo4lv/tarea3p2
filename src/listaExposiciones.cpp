@@ -28,11 +28,26 @@ void agregarExposicionTListaExposiciones(TListaExposiciones &listaExposiciones, 
     }
 }
 
-bool perteneceExposicionTListaExposiciones(TListaExposiciones listaExposiciones, int idExpo){ return false; }
+bool perteneceExposicionTListaExposiciones(TListaExposiciones listaExposiciones, int idExpo){
+    while (listaExposiciones != NULL){
+        if(idTExposicion(listaExposiciones->exposicion) == idExpo){
+            return true;
+        }
+        listaExposiciones = listaExposiciones->sig;
+    }
+    return false;
+}
 
-TExposicion obtenerExposicionTListaExposiciones(TListaExposiciones listaExposiciones, int idExpo){ return NULL; }
+TExposicion obtenerExposicionTListaExposiciones(TListaExposiciones listaExposiciones, int idExpo){
+    while (idTExposicion(listaExposiciones->exposicion) != idExpo){
+        listaExposiciones = listaExposiciones->sig;
+    }
+    return listaExposiciones->exposicion;
+}
 
-bool esVaciaTListaExposiciones(TListaExposiciones listaExposiciones){ return false; }
+bool esVaciaTListaExposiciones(TListaExposiciones listaExposiciones){
+    return listaExposiciones == NULL;
+}
 
 void imprimirTListaExposiciones(TListaExposiciones listaExposiciones){
     while (listaExposiciones != NULL){
@@ -50,7 +65,6 @@ void liberarTListaExposiciones(TListaExposiciones &listaExposiciones, bool liber
             delete aux;
         }
     }
-    // delete listaExposiciones;
     listaExposiciones = NULL;
 }
 
