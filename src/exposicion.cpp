@@ -48,7 +48,7 @@ TFecha fechaFinTExposicion(TExposicion exp){
 
 bool sonExposicionesCompatibles(TExposicion exp1, TExposicion exp2){
     //Si se superponen
-    if (compararTFechas(exp1->fin,exp2->inicio) || compararTFechas(exp2->fin,exp1->inicio)){
+    if (compararTFechas(exp1->fin,exp2->inicio)==1 || compararTFechas(exp2->fin,exp1->inicio)==1){
         //y tienen piezas en comun
         TConjuntoPiezas interseccion = interseccionTConjuntoPiezas(exp1->conjunto,exp2->conjunto);
         if(!esVacioTConjuntoPiezas(interseccion)){
