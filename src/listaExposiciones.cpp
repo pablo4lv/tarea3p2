@@ -43,11 +43,11 @@ void imprimirTListaExposiciones(TListaExposiciones listaExposiciones){
 
 void liberarTListaExposiciones(TListaExposiciones &listaExposiciones, bool liberarExposiciones){
     if (liberarExposiciones){
-        TListaExposiciones aux = listaExposiciones;
         while (listaExposiciones != NULL){
+            TListaExposiciones aux = listaExposiciones;
             listaExposiciones = listaExposiciones->sig;
+            liberarTExposicion(aux->exposicion);
             delete aux;
-            aux = aux->sig;
         }
     }
     // delete listaExposiciones;
