@@ -1,14 +1,35 @@
 #include "../include/exposicion.h"
 
-TExposicion crearTExposicion(int idExp, TFecha ini, TFecha fin, int cantMax){ return NULL; }
+struct rep_exposicion{
+    int id;
+    TFecha inicio;
+    TFecha fin;
+    TConjuntoPiezas conjunto;
+};
 
-void agregarATExposicion(TExposicion &exp, TPieza p){}
+TExposicion crearTExposicion(int idExp, TFecha ini, TFecha fin, int cantMax){
+    TExposicion nuevo = new rep_exposicion;
+    nuevo->id = idExp;
+    nuevo->inicio = ini;
+    nuevo->fin = fin;
+    nuevo->conjunto = crearTConjuntoPiezas(cantMax);
+    return nuevo;
+}
+
+void agregarATExposicion(TExposicion &exp, TPieza p){
+    insertarTConjuntoPiezas(exp->conjunto, idTPieza(p));
+}
 
 bool perteneceATExposicion(TExposicion exp, TPieza p){ return false; }
 
 int idTExposicion(TExposicion exp){ return 0; }
 
-void imprimirTExposicion(TExposicion exp){}
+void imprimirTExposicion(TExposicion exp){
+    printf("Exposicion #%i del %s al %s\n", exp->id, copiarTFecha(exp->inicio),copiarTFecha(exp->fin));
+    printf("Piezas: ");
+    imprimirTConjuntoPiezas(exp->conjunto);
+    printf("\n");
+}
 
 TFecha fechaInicioTExposicion(TExposicion exp){ return NULL; }
 
