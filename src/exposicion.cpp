@@ -47,10 +47,14 @@ TFecha fechaFinTExposicion(TExposicion exp){
 }
 
 bool sonExposicionesCompatibles(TExposicion exp1, TExposicion exp2){
-    //Caso 1: Periodos distintos
-    int distintos = (compararTFechas(exp1->inicio,exp2->inicio) == compararTFechas(exp1->fin,exp2->fin));
-    (distintos == 1 || distintos == -1);
-    return false;
+    //Si se superponen
+    if (compararTFechas(exp1->fin,exp2->inicio) || compararTFechas(exp2->fin,exp1->inicio)){
+        //y tienen piezas en comun
+        if( !esVacioTConjuntoPiezas( interseccionTConjuntoPiezas(exp1->conjunto,exp2->conjunto) ) ){
+            return false;
+        }
+    }
+    return true;
 }
 
 void liberarTExposicion(TExposicion &exp){
