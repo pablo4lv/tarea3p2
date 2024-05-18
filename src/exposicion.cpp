@@ -37,5 +37,11 @@ TFecha fechaFinTExposicion(TExposicion exp){ return NULL; }
 
 bool sonExposicionesCompatibles(TExposicion exp1, TExposicion exp2){ return false; }
 
-void liberarTExposicion(TExposicion &exp){}
+void liberarTExposicion(TExposicion &exp){
+    liberarTFecha(exp->inicio);
+    liberarTFecha(exp->fin);
+    liberarTConjuntoPiezas(exp->conjunto);
+    delete exp;
+    exp = NULL;
+}
 
