@@ -20,9 +20,13 @@ void agregarATExposicion(TExposicion &exp, TPieza p){
     insertarTConjuntoPiezas(exp->conjunto, idTPieza(p));
 }
 
-bool perteneceATExposicion(TExposicion exp, TPieza p){ return false; }
+bool perteneceATExposicion(TExposicion exp, TPieza p){
+    return perteneceTConjuntoPiezas(exp->conjunto,idTPieza(p));
+}
 
-int idTExposicion(TExposicion exp){ return 0; }
+int idTExposicion(TExposicion exp){
+    return exp->id;
+}
 
 void imprimirTExposicion(TExposicion exp){
     printf("Exposicion #%i del ", exp->id);
@@ -34,9 +38,13 @@ void imprimirTExposicion(TExposicion exp){
     imprimirTConjuntoPiezas(exp->conjunto);
 }
 
-TFecha fechaInicioTExposicion(TExposicion exp){ return NULL; }
+TFecha fechaInicioTExposicion(TExposicion exp){
+    return exp->inicio;
+}
 
-TFecha fechaFinTExposicion(TExposicion exp){ return NULL; }
+TFecha fechaFinTExposicion(TExposicion exp){
+    return exp->fin;
+}
 
 bool sonExposicionesCompatibles(TExposicion exp1, TExposicion exp2){ return false; }
 
