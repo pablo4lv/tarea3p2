@@ -50,7 +50,7 @@ void liberarTListaExposiciones(TListaExposiciones &listaExposiciones, bool liber
             aux = aux->sig;
         }
     }
-    delete listaExposiciones;
+    // delete listaExposiciones;
     listaExposiciones = NULL;
 }
 
