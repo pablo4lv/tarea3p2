@@ -25,7 +25,11 @@ bool perteneceATExposicion(TExposicion exp, TPieza p){ return false; }
 int idTExposicion(TExposicion exp){ return 0; }
 
 void imprimirTExposicion(TExposicion exp){
-    printf("Exposicion #%i del %s al %s\n", exp->id, copiarTFecha(exp->inicio),copiarTFecha(exp->fin));
+    printf("Exposicion #%i del ", exp->id);
+    imprimirTFecha(exp->inicio);
+    printf(" al ");
+    imprimirTFecha(exp->fin);
+    printf("\n");
     printf("Piezas: ");
     imprimirTConjuntoPiezas(exp->conjunto);
     printf("\n");
