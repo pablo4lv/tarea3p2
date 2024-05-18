@@ -55,6 +55,7 @@ bool sonExposicionesCompatibles(TExposicion exp1, TExposicion exp2){
             liberarTConjuntoPiezas(interseccion);
             return false;
         }
+        liberarTConjuntoPiezas(interseccion);
     }
     return true;
 }
