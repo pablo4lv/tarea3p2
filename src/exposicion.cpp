@@ -48,7 +48,8 @@ TFecha fechaFinTExposicion(TExposicion exp){
 
 bool sonExposicionesCompatibles(TExposicion exp1, TExposicion exp2){
     //Caso 1: Periodos distintos
-    (compararTFechas(exp1->inicio,exp2->inicio) == compararTFechas(exp1->fin,exp2->fin)) == (1 || -1);
+    bool distintos = (compararTFechas(exp1->inicio,exp2->inicio) == compararTFechas(exp1->fin,exp2->fin));
+    distintos == (1 || -1);
     return false;
 }
 
