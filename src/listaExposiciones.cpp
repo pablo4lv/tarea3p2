@@ -68,9 +68,61 @@ void liberarTListaExposiciones(TListaExposiciones &listaExposiciones, bool liber
     listaExposiciones = NULL;
 }
 
-TListaExposiciones obtenerExposicionesFinalizadas(TListaExposiciones &listaExposiciones, TFecha fecha){ return NULL; }              
+TListaExposiciones obtenerExposicionesFinalizadas(TListaExposiciones &listaExposiciones, TFecha fecha){
+    TListaExposiciones res = NULL;
 
-TListaExposiciones obtenerExposicionesActivas(TListaExposiciones &listaExposiciones, TFecha fecha){ return NULL; }
+    //Si el primero finalizo
+    while (listaExposiciones != NULL && compararTFechas(fecha,fechaFinTExposicion(listaExposiciones->exposicion)) == 1){
+        TListaExposiciones movido = listaExposiciones;
+        listaExposiciones = listaExposiciones->sig;
+        movido->sig = res;
+        res = movido;
+    }
+
+    //Luego del primero
+    TListaExposiciones aux = listaExposiciones;
+    while (aux != NULL && aux->sig != NULL){
+        TListaExposiciones aux2 = aux->sig;
+        //  aux2 != NULL &&
+        if ( compararTFechas(fecha,fechaFinTExposicion(aux2->exposicion)) == 1){
+            aux->sig = aux2->sig;
+            aux2->sig = res;
+            res = aux2;
+        } else {
+            aux = aux->sig;
+        }
+    }
+
+    return res;
+}              
+
+TListaExposiciones obtenerExposicionesActivas(TListaExposiciones &listaExposiciones, TFecha fecha){
+    TListaExposiciones res = NULL;
+
+    //Si el primero esta activo
+    while (listaExposiciones != NULL && compararTFechas(fecha, fechaInicioTExposicion(listaExposiciones->exposicion)) >= 0 && compararTFechas(fechaFinTExposicion(listaExposiciones->exposicion),fecha) >= 0){
+        TListaExposiciones movido = listaExposiciones;
+        listaExposiciones = listaExposiciones->sig;
+        movido->sig = res;
+        res = movido;
+    }
+
+    //Luego del primero
+    TListaExposiciones aux = listaExposiciones;
+    while (aux != NULL && aux->sig != NULL){
+        TListaExposiciones aux2 = aux->sig;
+        //  aux2 != NULL &&
+        if (compararTFechas(fecha, fechaInicioTExposicion(listaExposiciones->exposicion)) >= 0 && compararTFechas(fechaFinTExposicion(listaExposiciones->exposicion),fecha) >= 0){
+            aux->sig = aux2->sig;
+            aux2->sig = res;
+            res = aux2;
+        } else {
+            aux = aux->sig;
+        }
+    }
+
+    return res;
+}
 
 bool esCompatibleTListaExposiciones(TListaExposiciones listaExposiciones, TExposicion expo){ return false; }
 
