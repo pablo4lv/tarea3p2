@@ -76,7 +76,8 @@ TListaExposiciones obtenerExposicionesFinalizadas(TListaExposiciones &listaExpos
         TListaExposiciones movido = listaExposiciones;
         listaExposiciones = listaExposiciones->sig;
         movido->sig = res;
-        res = movido;
+        agregarExposicionTListaExposiciones(res, movido->exposicion);
+        delete movido;
     }
 
     //Luego del primero
@@ -87,7 +88,8 @@ TListaExposiciones obtenerExposicionesFinalizadas(TListaExposiciones &listaExpos
         if ( compararTFechas(fecha,fechaFinTExposicion(aux2->exposicion)) == 1){
             aux->sig = aux2->sig;
             aux2->sig = res;
-            res = aux2;
+            agregarExposicionTListaExposiciones(res, aux2->exposicion);
+            delete aux2;
         } else {
             aux = aux->sig;
         }
@@ -116,7 +118,7 @@ TListaExposiciones obtenerExposicionesActivas(TListaExposiciones &listaExposicio
             aux->sig = aux2->sig;
             aux2->sig = NULL;
             agregarExposicionTListaExposiciones(res, aux2->exposicion);
-           delete aux2;
+            delete aux2;
         } else {
             aux = aux->sig;
         }
