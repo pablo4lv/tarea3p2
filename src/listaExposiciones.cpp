@@ -20,7 +20,7 @@ void agregarExposicionTListaExposiciones(TListaExposiciones &listaExposiciones, 
         listaExposiciones = nuevo;
     } else {
         TListaExposiciones aux = listaExposiciones;
-        while (aux->sig != NULL && fechaInicioTExposicion(expo) >= fechaInicioTExposicion(aux->sig->exposicion)){
+        while (aux->sig != NULL && fechaInicioTExposicion(expo) > fechaInicioTExposicion(aux->sig->exposicion)){
             aux = aux->sig;
         }
         nuevo->sig = aux->sig;
