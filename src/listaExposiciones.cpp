@@ -105,6 +105,7 @@ TListaExposiciones obtenerExposicionesActivas(TListaExposiciones &listaExposicio
         listaExposiciones = listaExposiciones->sig;
         movido->sig = NULL;
         agregarExposicionTListaExposiciones(res, movido->exposicion);
+        liberarTListaExposiciones(movido,true);
     }
 
     //Luego del primero
@@ -115,6 +116,7 @@ TListaExposiciones obtenerExposicionesActivas(TListaExposiciones &listaExposicio
             aux->sig = aux2->sig;
             aux2->sig = NULL;
             agregarExposicionTListaExposiciones(res, aux2->exposicion);
+            liberarTListaExposiciones(aux2,true);
         } else {
             aux = aux->sig;
         }
