@@ -98,29 +98,28 @@ TListaExposiciones obtenerExposicionesFinalizadas(TListaExposiciones &listaExpos
 
 TListaExposiciones obtenerExposicionesActivas(TListaExposiciones &listaExposiciones, TFecha fecha){
     TListaExposiciones res = NULL;
+    TListaExposiciones ultimo = res;
 
     //Si el primero esta activo
     while (listaExposiciones != NULL && compararTFechas(fecha, fechaInicioTExposicion(listaExposiciones->exposicion)) >= 0 && compararTFechas(fechaFinTExposicion(listaExposiciones->exposicion),fecha) >= 0){
         TListaExposiciones movido = listaExposiciones;
         listaExposiciones = listaExposiciones->sig;
-        movido->sig = res;
-        res = movido;
+        movido->sig = NULL;
+        agregarExposicionTListaExposiciones(res, movido->exposicion);
     }
 
     //Luego del primero
     TListaExposiciones aux = listaExposiciones;
     while (aux != NULL && aux->sig != NULL){
         TListaExposiciones aux2 = aux->sig;
-        //  aux2 != NULL &&
-        if (compararTFechas(fecha, fechaInicioTExposicion(listaExposiciones->exposicion)) >= 0 && compararTFechas(fechaFinTExposicion(listaExposiciones->exposicion),fecha) >= 0){
+        if (compararTFechas(fecha, fechaInicioTExposicion(aux2->exposicion)) >= 0 && compararTFechas(fechaFinTExposicion(aux2->exposicion),fecha) >= 0){
             aux->sig = aux2->sig;
-            aux2->sig = res;
-            res = aux2;
+            aux2->sig = NULL;
+            agregarExposicionTListaExposiciones(res, aux2->exposicion);
         } else {
             aux = aux->sig;
         }
     }
-
     return res;
 }
 
