@@ -15,7 +15,7 @@ void agregarExposicionTListaExposiciones(TListaExposiciones &listaExposiciones, 
     nuevo->sig = NULL;
 
     //Si se inserta al principio, sea vacía o no la lista
-    if (listaExposiciones == NULL || compararTFechas(fechaInicioTExposicion(expo), fechaInicioTExposicion(listaExposiciones->exposicion)) < 0){
+    if (listaExposiciones == NULL || compararTFechas(fechaInicioTExposicion(expo), fechaInicioTExposicion(listaExposiciones->exposicion)) <= 0){
         nuevo->sig = listaExposiciones;
         listaExposiciones = nuevo;
     } else {
