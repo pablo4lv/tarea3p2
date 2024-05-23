@@ -23,7 +23,7 @@ TListaExposiciones crearTListaExposicionesVacia();
 // Función para agregar una exposicion a una lista de exposiciones.
 // Inserta la lista en la lista de exposiciones ordenada de menor a mayor por 
 // fecha de inicio de la exposicion. En caso de empate la exposición se 
-// almacena a continuación de las existentes con misma fecha. 
+// almacena antes de las existentes con misma fecha. 
 // La función es O(n) peor caso, siendo n la cantidad de exposiciones en la lista
 // PRE: no existe exposicion con el mismo id en la lista
 void agregarExposicionTListaExposiciones(TListaExposiciones &listaExposiciones, TExposicion expo);

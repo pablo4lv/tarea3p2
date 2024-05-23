@@ -14,7 +14,7 @@
 
 // Definición de tipo TConjuntoPiezas como un puntero a rep_conjuntopiezas
 // El conjunto es acotado, y la cantidad máxima de elementos define el rango de identificadores que almacena
-// Los identificadores que almacena el conjunto cumplen 0 < id <= cantMax
+// Los identificadores que almacena el conjunto cumplen 0 <= id < cantMax
 typedef struct rep_conjuntopiezas* TConjuntoPiezas;
 
 // Función para crear un nuevo conjunto de piezas.

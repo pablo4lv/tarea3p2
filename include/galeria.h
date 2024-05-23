@@ -39,7 +39,6 @@ void agregarPiezaAExposicionTGaleria(TGaleria galeria, int idPieza, int idExpo);
 // Realiza la modificación lógica de la fecha. Modifica la fecha
 // de la galería y las listas de exposiciones para reflejar cuáles están finalizadas, 
 // cuáles activas y cuáles siguen siendo futuras.
-// La función es O(...)
 // PRE: la fecha parámetro es posterior a la fecha actual de la galeria
 void avanzarAFechaTGaleria(TGaleria galeria, TFecha fecha);
 
@@ -56,7 +55,6 @@ void imprimirExposicionesActivasTGaleria(TGaleria galeria);
 void imprimirExposicionesFuturasTGaleria(TGaleria galeria);
 
 // Devuelve true si la exposicion 'expo' es compatible con el resto de las exposiciones de la galeria
-// PRE: esCompatibleExposicionGaleria
 bool esCompatibleExposicionTGaleria(TGaleria galeria, TExposicion expo);
 
 // Libera la memoria utilizada por la galeria
