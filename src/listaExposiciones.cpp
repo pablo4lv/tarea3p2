@@ -98,7 +98,6 @@ TListaExposiciones obtenerExposicionesFinalizadas(TListaExposiciones &listaExpos
 
 TListaExposiciones obtenerExposicionesActivas(TListaExposiciones &listaExposiciones, TFecha fecha){
     TListaExposiciones res = NULL;
-    TListaExposiciones ultimo = res;
 
     //Si el primero esta activo
     while (listaExposiciones != NULL && compararTFechas(fecha, fechaInicioTExposicion(listaExposiciones->exposicion)) >= 0 && compararTFechas(fechaFinTExposicion(listaExposiciones->exposicion),fecha) >= 0){
