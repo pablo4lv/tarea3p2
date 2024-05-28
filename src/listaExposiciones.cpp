@@ -97,8 +97,8 @@ TListaExposiciones obtenerExposicionesFinalizadas(TListaExposiciones &listaExpos
     TListaExposiciones* ultimo = &res;
     while (listaExposiciones != NULL){
         TListaExposiciones aux = listaExposiciones;
+        listaExposiciones = listaExposiciones->sig;
         if (compararTFechas(fecha, fechaFinTExposicion(aux->exposicion)) == 1){
-            listaExposiciones = listaExposiciones->sig;
             aux->sig = NULL;
             *ultimo = aux;
             ultimo = &aux->sig;
