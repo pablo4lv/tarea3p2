@@ -175,23 +175,32 @@ TListaExposiciones unirListaExposiciones(TListaExposiciones listaExpo1, TListaEx
 
     //Si ninguna de las dos es vacia
     TListaExposiciones res = NULL;
-    TListaExposiciones* ultimo = &res;
+    TListaExposiciones ultimo = NULL;
+
+    if (compararTFechas(fechaInicioTExposicion(listaExpo1->exposicion), fechaInicioTExposicion(listaExpo2->exposicion)) <= 0) {
+        res = listaExpo1;
+        listaExpo1 = listaExpo1->sig;
+    } else {
+        res = listaExpo2;
+        listaExpo2 = listaExpo2->sig;
+    }
+    ultimo = res;
 
     while (listaExpo1 != NULL && listaExpo2 != NULL){
         if (compararTFechas(fechaInicioTExposicion(listaExpo1->exposicion), fechaInicioTExposicion(listaExpo2->exposicion)) <= 0){
-            *ultimo = listaExpo1;
+            ultimo->sig = listaExpo1;
             listaExpo1 = listaExpo1->sig;
         } else {
-            *ultimo = listaExpo2;
+            ultimo->sig = listaExpo2;
             listaExpo2 = listaExpo2->sig;
         }
-        ultimo = &(*ultimo)->sig;
+        ultimo = ultimo->sig;
     }
 
     if (listaExpo1 != NULL){
-        *ultimo = listaExpo1;
+        ultimo->sig = listaExpo1;
     } else {
-        *ultimo = listaExpo2;
+        ultimo->sig = listaExpo2;
     }
 
     return res;
