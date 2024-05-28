@@ -57,14 +57,14 @@ void imprimirTListaExposiciones(TListaExposiciones listaExposiciones){
 }
 
 void liberarTListaExposiciones(TListaExposiciones &listaExposiciones, bool liberarExposiciones){
-    if (liberarExposiciones){
         while (listaExposiciones != NULL){
             TListaExposiciones aux = listaExposiciones;
             listaExposiciones = listaExposiciones->sig;
-            liberarTExposicion(aux->exposicion);
+            if (liberarExposiciones){
+                liberarTExposicion(aux->exposicion);
+            }
             delete aux;
         }
-    }
     listaExposiciones = NULL;
 }
 
