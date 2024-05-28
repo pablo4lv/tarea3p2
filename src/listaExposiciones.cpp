@@ -200,9 +200,6 @@ TListaExposiciones unirListaExposiciones(TListaExposiciones listaExpo1, TListaEx
         listaExpo2 = listaExpo2->sig;
     }
 
-    // liberarTListaExposiciones(listaExpo1,true);
-    // liberarTListaExposiciones(listaExpo2,true);
-
     return res;
 }
 
