@@ -164,49 +164,41 @@ bool esCompatibleTListaExposiciones(TListaExposiciones listaExposiciones, TExpos
 }
 
 TListaExposiciones unirListaExposiciones(TListaExposiciones listaExpo1, TListaExposiciones listaExpo2){
-    //Si alguna lista es vacia
-    if (listaExpo1 == NULL){
-        return listaExpo2;
-    }
-    if (listaExpo2 == NULL){
-        return listaExpo1;
-    }
-
-
-    //Si ninguna de las dos es vacia
     TListaExposiciones res = NULL;
     TListaExposiciones* ultimo = &res;
 
-    while (listaExpo1 != NULL && listaExpo2 != NULL){
-        TListaExposiciones nuevo = new rep_listaexposiciones;
-        nuevo->sig = NULL;
-
-        if (compararTFechas(fechaInicioTExposicion(listaExpo1->exposicion), fechaInicioTExposicion(listaExpo2->exposicion)) <= 0){
-            nuevo->exposicion = listaExpo1->exposicion;
-            *ultimo = nuevo;
+    while (listaExpo1 != NULL && listaExpo2 != NULL) {
+        TListaExposiciones nuevoNodo = new rep_listaexposiciones;
+        if (compararTFechas(fechaInicioTExposicion(listaExpo1->exposicion), fechaInicioTExposicion(listaExpo2->exposicion)) <= 0) {
+            nuevoNodo->exposicion = listaExpo1->exposicion; // Copia de la exposición
             listaExpo1 = listaExpo1->sig;
         } else {
-            nuevo->exposicion = listaExpo2->exposicion;
-            *ultimo = nuevo;
+            nuevoNodo->exposicion = listaExpo2->exposicion; // Copia de la exposición
             listaExpo2 = listaExpo2->sig;
         }
+        nuevoNodo->sig = NULL;
+        *ultimo = nuevoNodo;
         ultimo = &(*ultimo)->sig;
     }
 
-    while (listaExpo1 != NULL){
-        TListaExposiciones nuevo = new rep_listaexposiciones;
-        nuevo->exposicion = listaExpo1->exposicion;
+    // Copiar el resto de la lista que no esté vacía
+    while (listaExpo1 != NULL) {
+        TListaExposiciones nuevoNodo = new rep_listaexposiciones;
+        nuevoNodo->exposicion = listaExpo1->exposicion; // Copia de la exposición
+        nuevoNodo->sig = NULL;
+        *ultimo = nuevoNodo;
+        ultimo = &(*ultimo)->sig;
         listaExpo1 = listaExpo1->sig;
-        ultimo = &(*ultimo)->sig;
     }
-    while (listaExpo2 != NULL){
-        TListaExposiciones nuevo = new rep_listaexposiciones;
-        nuevo->exposicion = listaExpo2->exposicion;
+
+    while (listaExpo2 != NULL) {
+        TListaExposiciones nuevoNodo = new rep_listaexposiciones;
+        nuevoNodo->exposicion = listaExpo2->exposicion; // Copia de la exposición
+        nuevoNodo->sig = NULL;
+        *ultimo = nuevoNodo;
+        ultimo = &(*ultimo)->sig;
         listaExpo2 = listaExpo2->sig;
-        ultimo = &(*ultimo)->sig;
     }
-
-
 
     return res;
 }
