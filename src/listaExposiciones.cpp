@@ -197,11 +197,11 @@ TListaExposiciones unirListaExposiciones(TListaExposiciones listaExpo1, TListaEx
         ultimo = ultimo->sig;
     }
 
-    // if (listaExpo1 != NULL){
-    //     ultimo->sig = listaExpo1;
-    // } else {
-    //     ultimo->sig = listaExpo2;
-    // }
+    if (listaExpo1 != NULL){
+        ultimo->sig = listaExpo1;
+    } else {
+        ultimo->sig = listaExpo2;
+    }
 
     return res;
 }
