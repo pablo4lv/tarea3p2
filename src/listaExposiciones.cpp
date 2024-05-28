@@ -94,16 +94,34 @@ TListaExposiciones obtenerExposicionesFinalizadas(TListaExposiciones &listaExpos
     //     }
     // }
 
-    TListaExposiciones* ultimo = &res;
-    while (listaExposiciones != NULL){
-        TListaExposiciones aux = listaExposiciones;
-        listaExposiciones = listaExposiciones->sig;
-        if (compararTFechas(fecha, fechaFinTExposicion(aux->exposicion)) == 1){
-            aux->sig = NULL;
-            *ultimo = aux;
-            ultimo = &aux->sig;
+
+
+    TListaExposiciones* ultimoPtr = &res; // Apuntador al puntero del último nodo en la lista res
+
+    TListaExposiciones prev = NULL;
+    TListaExposiciones curr = listaExposiciones;
+
+    while (curr != NULL) {
+        if (compararTFechas(fecha, fechaFinTExposicion(curr->exposicion)) == 1) {
+            // La exposición está activa
+            TListaExposiciones movido = curr;
+            if (prev == NULL) {
+                // El nodo actual es el primero de la lista original
+                listaExposiciones = curr->sig;
+            } else {
+                // Saltar el nodo actual en la lista original
+                prev->sig = curr->sig;
+            }
+            curr = curr->sig;
+
+            // Conectar el nodo movido al final de la lista res
+            movido->sig = NULL;
+            *ultimoPtr = movido;
+            ultimoPtr = &movido->sig;
         } else {
-            listaExposiciones = listaExposiciones->sig;
+            // Moverse al siguiente nodo
+            prev = curr;
+            curr = curr->sig;
         }
     }
     return res;
