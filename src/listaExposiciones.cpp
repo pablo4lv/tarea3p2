@@ -201,6 +201,7 @@ TListaExposiciones unirListaExposiciones(TListaExposiciones listaExpo1, TListaEx
     }
 
     liberarTListaExposiciones(listaExpo1,true);
+    liberarTListaExposiciones(listaExpo2,true);
 
     return res;
 }
