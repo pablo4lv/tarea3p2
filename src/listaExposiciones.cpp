@@ -178,7 +178,7 @@ TListaExposiciones unirListaExposiciones(TListaExposiciones listaExpo1, TListaEx
     TListaExposiciones* ultimo = &res;
 
     while (listaExpo1 != NULL && listaExpo2 != NULL){
-        if (compararTFechas(fechaInicioTExposicion(listaExpo1->exposicion), fechaInicioTExposicion(listaExpo2->exposicion)) >= 0){
+        if (compararTFechas(fechaInicioTExposicion(listaExpo1->exposicion), fechaInicioTExposicion(listaExpo2->exposicion)) <= 0){
             *ultimo = listaExpo1;
             listaExpo1 = listaExpo1->sig;
         } else {
