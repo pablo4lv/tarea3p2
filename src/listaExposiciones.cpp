@@ -155,9 +155,47 @@ TListaExposiciones obtenerExposicionesActivas(TListaExposiciones &listaExposicio
     return res;
 }
 
-bool esCompatibleTListaExposiciones(TListaExposiciones listaExposiciones, TExposicion expo){ return false; }
+bool esCompatibleTListaExposiciones(TListaExposiciones listaExposiciones, TExposicion expo){
+    
+    while (listaExposiciones != NULL && sonExposicionesCompatibles(listaExposiciones->exposicion, expo)){
+        listaExposiciones = listaExposiciones->sig;
+    }
+    return listaExposiciones == NULL;
+}
 
-TListaExposiciones unirListaExposiciones(TListaExposiciones listaExpo1, TListaExposiciones listaExpo2){ return NULL; }
+TListaExposiciones unirListaExposiciones(TListaExposiciones listaExpo1, TListaExposiciones listaExpo2){
+    //Si alguna lista es vacia
+    if (listaExpo1 == NULL){
+        return listaExpo2;
+    }
+    if (listaExpo2 == NULL){
+        return listaExpo1;
+    }
+
+
+    //Si ninguna de las dos es vacia
+    TListaExposiciones res = NULL;
+    TListaExposiciones* ultimo = &res;
+
+    while (listaExpo1 != NULL && listaExpo2 != NULL){
+        if (compararTFechas(fechaInicioTExposicion(listaExpo1->exposicion), fechaInicioTExposicion(listaExpo2->exposicion)) >= 0){
+            *ultimo = listaExpo1;
+            listaExpo1 = listaExpo1->sig;
+        } else {
+            *ultimo = listaExpo2;
+            listaExpo2 = listaExpo2->sig;
+        }
+        ultimo = &(*ultimo)->sig;
+    }
+
+    if (listaExpo1 != NULL){
+        *ultimo = listaExpo1;
+    } else {
+        *ultimo = listaExpo2;
+    }
+
+    return res;
+}
 
 
 
