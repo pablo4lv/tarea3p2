@@ -71,30 +71,41 @@ void liberarTListaExposiciones(TListaExposiciones &listaExposiciones, bool liber
 TListaExposiciones obtenerExposicionesFinalizadas(TListaExposiciones &listaExposiciones, TFecha fecha){
     TListaExposiciones res = NULL;
 
-    //Si el primero finalizo
-    while (listaExposiciones != NULL && compararTFechas(fecha,fechaFinTExposicion(listaExposiciones->exposicion)) == 1){
-        TListaExposiciones movido = listaExposiciones;
-        listaExposiciones = listaExposiciones->sig;
-        movido->sig = res;
-        agregarExposicionTListaExposiciones(res, movido->exposicion);
-        delete movido;
-    }
+    // //Si el primero finalizo
+    // while (listaExposiciones != NULL && compararTFechas(fecha,fechaFinTExposicion(listaExposiciones->exposicion)) == 1){
+    //     TListaExposiciones movido = listaExposiciones;
+    //     listaExposiciones = listaExposiciones->sig;
+    //     movido->sig = res;
+    //     agregarExposicionTListaExposiciones(res, movido->exposicion);
+    //     delete movido;
+    // }
 
-    //Luego del primero
-    TListaExposiciones aux = listaExposiciones;
-    while (aux != NULL && aux->sig != NULL){
-        TListaExposiciones aux2 = aux->sig;
-        //  aux2 != NULL &&
-        if ( compararTFechas(fecha,fechaFinTExposicion(aux2->exposicion)) == 1){
-            aux->sig = aux2->sig;
-            aux2->sig = res;
-            agregarExposicionTListaExposiciones(res, aux2->exposicion);
-            delete aux2;
+    // //Luego del primero
+    // TListaExposiciones aux = listaExposiciones;
+    // while (aux != NULL && aux->sig != NULL){
+    //     TListaExposiciones aux2 = aux->sig;
+    //     if ( compararTFechas(fecha,fechaFinTExposicion(aux2->exposicion)) == 1){
+    //         aux->sig = aux2->sig;
+    //         aux2->sig = res;
+    //         agregarExposicionTListaExposiciones(res, aux2->exposicion);
+    //         delete aux2;
+    //     } else {
+    //         aux = aux->sig;
+    //     }
+    // }
+
+    TListaExposiciones* ultimo = &res;
+    while (listaExposiciones != NULL){
+        TListaExposiciones aux = listaExposiciones;
+        if (compararTFechas(fecha, fechaFinTExposicion(aux->exposicion)) == 1){
+            listaExposiciones = listaExposiciones->sig;
+            aux->sig = NULL;
+            *ultimo = aux;
+            ultimo = &aux->sig;
         } else {
-            aux = aux->sig;
+            listaExposiciones = listaExposiciones->sig;
         }
     }
-
     return res;
 }              
 
