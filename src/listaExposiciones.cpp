@@ -199,7 +199,9 @@ TListaExposiciones unirListaExposiciones(TListaExposiciones listaExpo1, TListaEx
         ultimo = &(*ultimo)->sig;
         listaExpo2 = listaExpo2->sig;
     }
-    ultimo = NULL;
+
+    liberarTListaExposiciones(listaExpo1,true);
+
     return res;
 }
 
