@@ -10,7 +10,7 @@ struct rep_galeria{
 
 TGaleria crearTGaleria(TFecha fecha){
     TGaleria nueva = new rep_galeria;
-    nueva->coleccion = NULL;
+    nueva->coleccion = crearColeccionPiezasVacia();
     nueva->finalizadas = NULL;
     nueva->activas = NULL;
     nueva->futuras = NULL;
@@ -18,9 +18,13 @@ TGaleria crearTGaleria(TFecha fecha){
     return nueva;
 }
 
-void agregarPiezaTGaleria(TGaleria galeria, TPieza pieza){}
+void agregarPiezaTGaleria(TGaleria galeria, TPieza pieza){
+    insertarPiezaColeccionPiezas(galeria->coleccion,pieza);
+}
 
-void agregarExposicionTGaleria(TGaleria galeria, TExposicion expo){}
+void agregarExposicionTGaleria(TGaleria galeria, TExposicion expo){
+
+}
 
 void agregarPiezaAExposicionTGaleria(TGaleria galeria, int idPieza, int idExpo){}
 
@@ -34,4 +38,12 @@ void imprimirExposicionesFuturasTGaleria(TGaleria galeria){}
 
 bool esCompatibleExposicionTGaleria(TGaleria galeria, TExposicion expo){ return false; }
 
-void liberarTGaleria(TGaleria &galeria){}
+void liberarTGaleria(TGaleria &galeria){
+    liberarColeccionPiezas(galeria->coleccion);
+    liberarTListaExposiciones(galeria->activas,true);
+    liberarTListaExposiciones(galeria->finalizadas,true);
+    liberarTListaExposiciones(galeria->futuras,true);
+    liberarTFecha(galeria->fecha);
+    delete galeria;
+    galeria = NULL;
+}
