@@ -70,12 +70,42 @@ void liberarTListaExposiciones(TListaExposiciones &listaExposiciones, bool liber
 
 TListaExposiciones obtenerExposicionesFinalizadas(TListaExposiciones &listaExposiciones, TFecha fecha){
     TListaExposiciones res = NULL;
+    //puntero al ultimo nodo de res
+    TListaExposiciones* ultimoPtr = &res; 
 
-    // //Si el primero finalizo
-    // while (listaExposiciones != NULL && compararTFechas(fecha,fechaFinTExposicion(listaExposiciones->exposicion)) == 1){
+    //auxiliares
+    TListaExposiciones prev = NULL;
+    TListaExposiciones actual = listaExposiciones;
+
+    while (actual != NULL) {
+        if (compararTFechas(fecha, fechaFinTExposicion(actual->exposicion)) == 1) {
+            TListaExposiciones movido = actual;
+            if (prev == NULL) {
+                listaExposiciones = actual->sig;
+            } else {
+                prev->sig = actual->sig;
+            }
+            actual = actual->sig;
+
+            movido->sig = NULL;
+            *ultimoPtr = movido;
+            ultimoPtr = &movido->sig;
+        } else {
+            prev = actual;
+            actual = actual->sig;
+        }
+    }
+    return res;
+}              
+
+TListaExposiciones obtenerExposicionesActivas(TListaExposiciones &listaExposiciones, TFecha fecha){
+    // TListaExposiciones res = NULL;
+
+    // //Si el primero esta activo
+    // while (listaExposiciones != NULL && compararTFechas(fecha, fechaInicioTExposicion(listaExposiciones->exposicion)) >= 0 && compararTFechas(fechaFinTExposicion(listaExposiciones->exposicion),fecha) >= 0){
     //     TListaExposiciones movido = listaExposiciones;
     //     listaExposiciones = listaExposiciones->sig;
-    //     movido->sig = res;
+    //     movido->sig = NULL;
     //     agregarExposicionTListaExposiciones(res, movido->exposicion);
     //     delete movido;
     // }
@@ -84,72 +114,42 @@ TListaExposiciones obtenerExposicionesFinalizadas(TListaExposiciones &listaExpos
     // TListaExposiciones aux = listaExposiciones;
     // while (aux != NULL && aux->sig != NULL){
     //     TListaExposiciones aux2 = aux->sig;
-    //     if ( compararTFechas(fecha,fechaFinTExposicion(aux2->exposicion)) == 1){
+    //     if (compararTFechas(fecha, fechaInicioTExposicion(aux2->exposicion)) >= 0 && compararTFechas(fechaFinTExposicion(aux2->exposicion),fecha) >= 0){
     //         aux->sig = aux2->sig;
-    //         aux2->sig = res;
+    //         aux2->sig = NULL;
     //         agregarExposicionTListaExposiciones(res, aux2->exposicion);
     //         delete aux2;
     //     } else {
     //         aux = aux->sig;
     //     }
     // }
+    // return res;
 
 
+    TListaExposiciones res = NULL;
+    //puntero al ultimo nodo de res
+    TListaExposiciones* ultimoPtr = &res; 
 
-    TListaExposiciones* ultimoPtr = &res; // Apuntador al puntero del último nodo en la lista res
-
+    //auxiliares
     TListaExposiciones prev = NULL;
-    TListaExposiciones curr = listaExposiciones;
+    TListaExposiciones actual = listaExposiciones;
 
-    while (curr != NULL) {
-        if (compararTFechas(fecha, fechaFinTExposicion(curr->exposicion)) == 1) {
-            // La exposición está activa
-            TListaExposiciones movido = curr;
+    while (actual != NULL) {
+        if (compararTFechas(fecha, fechaInicioTExposicion(actual->exposicion)) >= 0 && compararTFechas(fechaFinTExposicion(actual->exposicion),fecha) >= 0) {
+            TListaExposiciones movido = actual;
             if (prev == NULL) {
-                // El nodo actual es el primero de la lista original
-                listaExposiciones = curr->sig;
+                listaExposiciones = actual->sig;
             } else {
-                // Saltar el nodo actual en la lista original
-                prev->sig = curr->sig;
+                prev->sig = actual->sig;
             }
-            curr = curr->sig;
+            actual = actual->sig;
 
-            // Conectar el nodo movido al final de la lista res
             movido->sig = NULL;
             *ultimoPtr = movido;
             ultimoPtr = &movido->sig;
         } else {
-            // Moverse al siguiente nodo
-            prev = curr;
-            curr = curr->sig;
-        }
-    }
-    return res;
-}              
-
-TListaExposiciones obtenerExposicionesActivas(TListaExposiciones &listaExposiciones, TFecha fecha){
-    TListaExposiciones res = NULL;
-
-    //Si el primero esta activo
-    while (listaExposiciones != NULL && compararTFechas(fecha, fechaInicioTExposicion(listaExposiciones->exposicion)) >= 0 && compararTFechas(fechaFinTExposicion(listaExposiciones->exposicion),fecha) >= 0){
-        TListaExposiciones movido = listaExposiciones;
-        listaExposiciones = listaExposiciones->sig;
-        movido->sig = NULL;
-        agregarExposicionTListaExposiciones(res, movido->exposicion);
-        delete movido;
-    }
-
-    //Luego del primero
-    TListaExposiciones aux = listaExposiciones;
-    while (aux != NULL && aux->sig != NULL){
-        TListaExposiciones aux2 = aux->sig;
-        if (compararTFechas(fecha, fechaInicioTExposicion(aux2->exposicion)) >= 0 && compararTFechas(fechaFinTExposicion(aux2->exposicion),fecha) >= 0){
-            aux->sig = aux2->sig;
-            aux2->sig = NULL;
-            agregarExposicionTListaExposiciones(res, aux2->exposicion);
-            delete aux2;
-        } else {
-            aux = aux->sig;
+            prev = actual;
+            actual = actual->sig;
         }
     }
     return res;
