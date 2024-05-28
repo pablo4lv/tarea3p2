@@ -9,7 +9,7 @@ crearExposicion 02/03/2002 01/07/2002 10 3
 agregarAExposicion 9 0 1 2 3 4 5 6 7 8 
 agregarAListaExposiciones
 imprimirListaExposiciones
-crearExposicion 02/03/2003 01/07/2003 10 3
+crearExposicion 03/03/2003 01/07/2003 10 3
 agregarAExposicion 9 0 1 2 3 4 5 6 7 8 
 esCompatibleListaExposiciones
 liberarExposicion 
@@ -21,6 +21,6 @@ crearExposicion 02/03/2002 01/07/2002 10 3
 agregarAExposicion 1 9 
 esCompatibleListaExposiciones
 liberarExposicion  
-unirListaExposiciones 2 02/03/2002 01/07/2002 10 4 2 3 4 02/03/2002 01/07/2002 10 5 2 2 3
+unirListaExposiciones 2 04/03/2002 01/07/2002 10 4 2 3 4 05/03/2002 01/07/2002 10 5 2 2 3
 liberarListaExposiciones
 Fin

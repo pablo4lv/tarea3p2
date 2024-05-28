@@ -200,6 +200,3 @@ TListaExposiciones unirListaExposiciones(TListaExposiciones listaExpo1, TListaEx
 
     return res;
 }
-
-
-
