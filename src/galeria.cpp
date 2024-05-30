@@ -50,7 +50,20 @@ void agregarPiezaAExposicionTGaleria(TGaleria galeria, int idPieza, int idExpo){
 }
 
 void avanzarAFechaTGaleria(TGaleria galeria, TFecha fecha){
-    
+    //puede perder memoria
+    galeria->fecha = fecha;
+
+    TListaExposiciones unidas1 = unirListaExposiciones(galeria->activas, galeria->finalizadas);
+    //Lista con todas las expo
+    TListaExposiciones unidas2 = unirListaExposiciones(unidas1, galeria->futuras);
+
+    liberarTListaExposiciones(galeria->activas, true);
+    liberarTListaExposiciones(galeria->finalizadas, true);
+    liberarTListaExposiciones(galeria->futuras, true);
+
+    galeria->activas = obtenerExposicionesActivas(unidas2, fecha);
+    galeria->finalizadas = obtenerExposicionesFinalizadas(unidas2, fecha);
+    galeria->futuras = unidas2;
 }
 
 void imprimirExposicionesFinalizadasTGaleria(TGaleria galeria){
