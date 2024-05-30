@@ -27,9 +27,11 @@ void agregarExposicionTGaleria(TGaleria galeria, TExposicion expo){
         agregarExposicionTListaExposiciones(galeria->futuras, expo);
     } else {
         if (compararTFechas(galeria->fecha, fechaInicioTExposicion(expo)) >= 0){
-            agregarExposicionTListaExposiciones(galeria->activas,expo);
-        } else {
-            agregarExposicionTListaExposiciones(galeria->finalizadas, expo);
+            if (compararTFechas(galeria->fecha, fechaFinTExposicion(expo)) > 0){
+                agregarExposicionTListaExposiciones(galeria->finalizadas, expo);
+            } else {
+                agregarExposicionTListaExposiciones(galeria->activas,expo);
+            }
         }
     }
 }
