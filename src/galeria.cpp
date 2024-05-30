@@ -64,7 +64,8 @@ void avanzarAFechaTGaleria(TGaleria galeria, TFecha fecha){
     galeria->finalizadas = obtenerExposicionesFinalizadas(unidas2, fecha);
     galeria->futuras = unidas2;
 
-
+    liberarTFecha(galeria->fecha);
+    galeria->fecha = fecha;
 }
 
 void imprimirExposicionesFinalizadasTGaleria(TGaleria galeria){
