@@ -66,8 +66,9 @@ void imprimirExposicionesFuturasTGaleria(TGaleria galeria){
 }
 
 bool esCompatibleExposicionTGaleria(TGaleria galeria, TExposicion expo){
-    
-    return false;
+    return (esCompatibleTListaExposiciones(galeria->activas,expo) &&
+    esCompatibleTListaExposiciones(galeria->futuras, expo) &&
+    esCompatibleTListaExposiciones(galeria->finalizadas, expo));
 }
 
 void liberarTGaleria(TGaleria &galeria){
